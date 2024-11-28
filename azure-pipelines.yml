@@ -7,28 +7,33 @@ trigger:
       - master
 
 pool:
-  name: 'Self-Hosted-Agent-Pool' # Replace with your agent pool name
+  name: 'Self-Hosted'
 
 steps:
-# Step 1: Install dependencies
-- task: UseNode@2
+# Step 1: Restore dependencies
+- task: UseDotNet@2
   inputs:
-    versionSpec: '16.x'
-  displayName: 'Set up Node.js'
+    packageType: 'sdk'
+    version: '8.0'
+  displayName: 'Install .NET SDK'
 
-# Step 2: Install project dependencies
 - script: |
-    npm install
-  displayName: 'Install dependencies'
+    dotnet restore
+  displayName: 'Restore dependencies'
 
-# Step 3: Run build command
+# Step 2: Build the solution
 - script: |
-    npm run build
-  displayName: 'Run build'
+    dotnet build --configuration Release
+  displayName: 'Build the project'
 
-# Step 4: Publish artifact
+# Step 4: Publish build output
+- script: |
+    dotnet publish -c Release -o $(Build.ArtifactStagingDirectory)
+  displayName: 'Publish build output'
+
+# Step 5: Publish artifacts
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(System.DefaultWorkingDirectory)/dist'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
     artifact: 'drop'
   displayName: 'Publish Artifact'
