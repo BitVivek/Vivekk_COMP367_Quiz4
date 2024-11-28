@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Vivekk_COMP367_Quiz4")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8d4d9dbae6d50f19370be369f3af4713575d3eb")]
 [assembly: System.Reflection.AssemblyProductAttribute("Vivekk_COMP367_Quiz4")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Vivekk_COMP367_Quiz4")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

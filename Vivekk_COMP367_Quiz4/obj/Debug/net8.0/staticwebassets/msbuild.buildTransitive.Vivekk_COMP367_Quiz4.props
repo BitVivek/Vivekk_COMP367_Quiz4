@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Vivekk_COMP367_Quiz4.props" />
+</Project>
